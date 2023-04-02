@@ -13,4 +13,18 @@ function duplicatedData(data) {
     };
 }
 
-export default { validationError, duplicatedData };
+function invalidCredentials() {
+    return {
+        name: "invalidCredentials",
+        message: "Email or password are incorrect"
+    };
+}
+
+function internalError() {
+    return {
+        name: "InternalError",
+        message: "Something went wrong, sorry :("
+    }
+}
+
+export default { validationError, duplicatedData, internalError, invalidCredentials };

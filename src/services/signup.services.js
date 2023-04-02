@@ -6,8 +6,27 @@ async function createPatient({ name, email, password, cpf }) {
     const { rowCount } = await signupRepositories.checkPatient({ email, cpf });
     if (rowCount) throw errors.duplicatedData("email or cpf");
 
-    const hashPassword = await bcrypt.hash(password, 10);
-    await signupRepositories.createPatient(name, email, hashPassword, cpf);
+    try {
+        const hashPassword = await bcrypt.hash(password, 10);
+        await signupRepositories.createPatient(name, email, hashPassword, cpf);
+    } catch (error) {
+        throw errors.internalError(error);
+    }
 }
 
-export default { createPatient };
+async function createDoctor({ name, email, password, crmStateId, crm, specialtyId, branchId }) {
+    const { rowCount } = await signupRepositories.checkDoctor({ email, crmStateId, crm });
+    if (rowCount) throw errors.duplicatedData("email or crm");
+
+    try {
+        const hashPassword = await bcrypt.hash(password, 10);
+        await signupRepositories.createDoctor(name, email, hashPassword, crmStateId, crm, specialtyId, branchId);
+    } catch (error)
+    {
+        console.log(error);
+        throw errors.internalError();
+    }
+
+}
+
+export default { createPatient, createDoctor };
