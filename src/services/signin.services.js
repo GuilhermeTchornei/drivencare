@@ -17,7 +17,7 @@ async function user({ email, password, type }) {
     if (!validPassword) throw errors.invalidCredentials();
 
     try {
-        const token = jwt.sign({ userId: user.id }, process.env.SECRET_KEY);
+        const token = jwt.sign({ userId: user.id, type }, process.env.SECRET_KEY);
         return token;
     } catch (error) {
         console.log(error);

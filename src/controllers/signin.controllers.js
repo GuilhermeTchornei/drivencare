@@ -1,3 +1,4 @@
+import httpStatus from "http-status";
 import signinServices from "../services/signin.services.js";
 
 async function user(req, res, next) {
@@ -5,7 +6,7 @@ async function user(req, res, next) {
 
     try {
         const token = await signinServices.user({ email, password, type })
-        res.status(200).send({ token });
+        res.status(httpStatus.OK).send({ token });
     } catch (error) {
         next(error);
     }

@@ -27,4 +27,11 @@ function internalError() {
     }
 }
 
-export default { validationError, duplicatedData, internalError, invalidCredentials };
+function unauthorized() {
+    return {
+        name: "Unauthorized",
+        message: "You must be signed in to continue"
+    };
+}
+
+export default { validationError, duplicatedData, internalError, invalidCredentials, unauthorized };

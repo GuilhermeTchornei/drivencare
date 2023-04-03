@@ -1,3 +1,4 @@
+import httpStatus from "http-status";
 import signupServices from "../services/signup.services.js";
 
 async function patient(req, res, next) {
@@ -5,7 +6,7 @@ async function patient(req, res, next) {
 
     try {
         await signupServices.createPatient({ name, email, password, cpf });
-        res.sendStatus(201);
+        res.sendStatus(httpStatus.CREATED);
     } catch (error) {
         next(error);
     }
@@ -16,7 +17,7 @@ async function doctor(req, res, next) {
 
     try {
         await signupServices.createDoctor({ name, email, password, crmStateId, crm, specialtyId, branchId });
-        res.sendStatus(201);
+        res.sendStatus(httpStatus.CREATED);
     } catch (error) {
         next(error);
     }
