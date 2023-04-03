@@ -5,5 +5,8 @@ import appointmentsControllers from "../controllers/appointments.controllers.js"
 const appointmentsRouter = Router();
 
 appointmentsRouter.post('/doctors', authValidation, appointmentsControllers.doctorsList);
+appointmentsRouter.get('/:doctorId', authValidation, appointmentsControllers.doctorsSchedule);
+appointmentsRouter.post('/:doctorId', authValidation, appointmentsControllers.create);
+appointmentsRouter.put('/:appointmentId', authValidation, appointmentsControllers.update);
 
 export default appointmentsRouter;

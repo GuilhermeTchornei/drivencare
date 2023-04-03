@@ -13,6 +13,10 @@ export default function handleApplicationErrors(err, req, res, next) {
             return res.status(httpStatus.UNAUTHORIZED).send({ message: err.message });
         case "Unauthorized":
             return res.status(httpStatus.UNAUTHORIZED).send({ message: err.message });
+        case "BadRequest":
+            return res.status(httpStatus.BAD_REQUEST).send({ message: err.message });
+        case "NotFound":
+            return res.status(httpStatus.NOT_FOUND).send({ message: err.message });
         default:
             return res.status(httpStatus.UNAUTHORIZED).send({ message: err.message });
     }

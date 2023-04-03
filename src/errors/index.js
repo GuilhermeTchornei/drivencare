@@ -34,4 +34,18 @@ function unauthorized() {
     };
 }
 
-export default { validationError, duplicatedData, internalError, invalidCredentials, unauthorized };
+function badRequest(message) {
+    return {
+        name: "BadRequest",
+        message
+    };
+}
+
+function notFound() {
+    return {
+        name: "NotFound",
+        message: "The requested resource wan not found"
+    };
+}
+
+export default { validationError, duplicatedData, internalError, invalidCredentials, unauthorized, badRequest, notFound };
