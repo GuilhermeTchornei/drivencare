@@ -268,11 +268,11 @@ ALTER TABLE ONLY public.states ALTER COLUMN id SET DEFAULT nextval('public.state
 -- Data for Name: appointments; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-INSERT INTO public.appointments VALUES (1, 1, 1, 'OPENED', '2023-04-05 11:00:00', '2023-04-05 12:00:00');
-INSERT INTO public.appointments VALUES (2, 1, 7, 'OPENED', '2023-12-25 20:00:00', '2023-12-25 21:00:00');
 INSERT INTO public.appointments VALUES (3, 1, 7, 'OPENED', '2023-12-25 19:00:00', '2023-12-25 20:00:00');
 INSERT INTO public.appointments VALUES (4, 1, 7, 'OPENED', '2023-12-25 14:00:00', '2023-12-25 15:00:00');
 INSERT INTO public.appointments VALUES (5, 1, 7, 'OPENED', '2023-12-25 12:00:00', '2023-12-25 13:00:00');
+INSERT INTO public.appointments VALUES (1, 1, 1, 'CANCELLED', '2023-04-05 11:00:00', '2023-04-05 12:00:00');
+INSERT INTO public.appointments VALUES (2, 1, 7, 'FINISHED', '2023-12-25 20:00:00', '2023-12-25 21:00:00');
 
 
 --
